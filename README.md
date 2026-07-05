@@ -145,10 +145,12 @@ frontend/
 | `GET /api/traces` | recent query history |
 | `GET /api/health` | active provider, embedder, and store |
 
+```bash
 curl -X POST http://localhost:8000/api/query \
   -H "Content-Type: application/json" \
   -d '{"question":"What is reciprocal rank fusion?"}'
-  
+```
+
 ## Deployment
 
 Deploy free with the backend on a Render web service and the dashboard on Vercel. Full step-by-step in [DEPLOY.md](DEPLOY.md). The deploy uses API-based Gemini embeddings and a lean requirements file so it fits Render's free 512 MB instance without torch.
