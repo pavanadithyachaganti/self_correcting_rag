@@ -8,6 +8,7 @@ A valid question answered correctly from an uploaded PDF, with the work shown: e
 
 <img width="594" height="423" alt="Screenshot 2026-07-05 at 15 32 35" src="https://github.com/user-attachments/assets/f23fb425-98d5-4ec2-8e2e-f950d88e323e" />
 <img width="589" height="517" alt="Screenshot 2026-07-05 at 15 32 29" src="https://github.com/user-attachments/assets/41d978c0-e0c2-4fc3-823b-181587207770" />
+
 Asked for an 11th phase that does not exist (the game has only 10), the agent refuses to invent one rather than guessing. Faithfulness scores 1.00 because the honest "not enough information" is fully grounded in the source. This is the guardrail that stops hallucination.
 
 A retrieval-augmented generation system that does not trust its own first attempt. It grades the passages it retrieves, rewrites the query and retrieves again when they are weak, verifies that the generated answer is actually grounded in those passages, and regenerates when it is not. Every answer comes back with three evaluation scores and a full execution trace, so you can see exactly how it was produced.
