@@ -125,6 +125,8 @@ def kb():
 
 @app.post("/api/upload", response_model=UploadResponse)
 def upload(files: List[UploadFile] = File(...)):
+    if not settings.enable_uploads:
+        raise HTTPException(403, "Uploads are disabled on this deployment.")
     os.makedirs(settings.uploads_dir, exist_ok=True)
     saved, skipped = [], []
     for f in files:
@@ -151,6 +153,8 @@ def upload(files: List[UploadFile] = File(...)):
 
 @app.post("/api/reset")
 def reset():
+    if not settings.enable_uploads:
+        raise HTTPException(403, "Uploads are disabled on this deployment.")
     if os.path.isdir(settings.uploads_dir):
         for f in glob.glob(os.path.join(settings.uploads_dir, "*")):
             try:
