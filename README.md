@@ -1,4 +1,6 @@
 # Self-Correcting Agentic RAG
+Python · FastAPI · Next.js · TypeScript · Tailwind · Recharts · sentence-transformers · BM25 + reciprocal rank fusion · LLM-as-judge evals · SQLite. LLMs via Groq or Gemini. Agent orchestration written from scratch, no LangChain.
+
 <img width="901" height="663" alt="Screenshot 2026-07-05 at 15 31 21" src="https://github.com/user-attachments/assets/accdad74-e29b-436f-a356-8642d5413358" />
 
 <img width="594" height="423" alt="Screenshot 2026-07-05 at 15 32 35" src="https://github.com/user-attachments/assets/f23fb425-98d5-4ec2-8e2e-f950d88e323e" />
@@ -31,7 +33,7 @@ question
    -> check faithfulness -- unfaithful? --> regenerate, stricter grounding
    -> answer + faithfulness / context precision / answer relevancy + trace
 ```
-
+The sample knowledge base is a small set of notes on RAG techniques (retrieval, reranking, corrective RAG, evaluation, chunking), so out of the box you can ask the system how it itself works.
 ## Quickstart
 
 ```bash
@@ -139,6 +141,10 @@ frontend/
 | `GET /api/traces` | recent query history |
 | `GET /api/health` | active provider, embedder, and store |
 
+curl -X POST http://localhost:8000/api/query \
+  -H "Content-Type: application/json" \
+  -d '{"question":"What is reciprocal rank fusion?"}'
+  
 ## Deployment
 
 Deploy free with the backend on a Render web service and the dashboard on Vercel. Full step-by-step in [DEPLOY.md](DEPLOY.md). The deploy uses API-based Gemini embeddings and a lean requirements file so it fits Render's free 512 MB instance without torch.
@@ -153,3 +159,5 @@ Deploy free with the backend on a Render web service and the dashboard on Vercel
 ## What this demonstrates
 
 Agentic control flow, hybrid retrieval, reranking, RAG evaluation, LLM-as-judge, observability, provider abstraction, and clean API design, built end to end without a framework doing the thinking.
+
+Built by Pavan Adithya Chaganti · [LinkedIn](https://www.linkedin.com/in/pavan-adithya-chaganti-763840214)
