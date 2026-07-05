@@ -3,6 +3,8 @@
 
 <img width="594" height="423" alt="Screenshot 2026-07-05 at 15 32 35" src="https://github.com/user-attachments/assets/f23fb425-98d5-4ec2-8e2e-f950d88e323e" />
 <img width="589" height="517" alt="Screenshot 2026-07-05 at 15 32 29" src="https://github.com/user-attachments/assets/41d978c0-e0c2-4fc3-823b-181587207770" />
+
+
 A retrieval-augmented generation system that does not trust its own first attempt. It grades the passages it retrieves, rewrites the query and retrieves again when they are weak, verifies that the generated answer is actually grounded in those passages, and regenerates when it is not. Every answer comes back with three evaluation scores and a full execution trace, so you can see exactly how it was produced.
 
 Most RAG demos stop at "retrieve, stuff into prompt, answer." This one adds the parts that decide whether a RAG system is trustworthy in production: self-correction loops, automated evaluation, and observability.
