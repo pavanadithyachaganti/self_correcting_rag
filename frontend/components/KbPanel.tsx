@@ -4,6 +4,7 @@ import { useEffect, useRef, useState } from "react";
 import { api } from "@/lib/api";
 
 export function KbPanel({ onChange }: { onChange?: () => void }) {
+  const uploadsEnabled = process.env.NEXT_PUBLIC_ENABLE_UPLOADS !== "false";
   const [count, setCount] = useState<number | null>(null);
   const [busy, setBusy] = useState(false);
   const [status, setStatus] = useState("");
@@ -69,28 +70,39 @@ export function KbPanel({ onChange }: { onChange?: () => void }) {
       </span>
 
       <div className="ml-auto flex items-center gap-2">
-        <button
-          onClick={() => inputRef.current?.click()}
-          disabled={busy}
-          className="rounded-md border border-line2 px-2.5 py-1 font-mono text-[12px] text-fg hover:border-accent hover:text-accent disabled:opacity-50"
-        >
-          + add documents
-        </button>
-        <button
-          onClick={reset}
-          disabled={busy}
-          className="font-mono text-[11.5px] text-faint hover:text-muted disabled:opacity-50"
-        >
-          reset
-        </button>
-        <input
-          ref={inputRef}
-          type="file"
-          multiple
-          accept=".pdf,.docx,.md,.txt"
-          className="hidden"
-          onChange={(e) => handleFiles(e.target.files)}
-        />
+        {uploadsEnabled ? (
+          <>
+            <button
+              onClick={() => inputRef.current?.click()}
+              disabled={busy}
+              className="rounded-md border border-line2 px-2.5 py-1 font-mono text-[12px] text-fg hover:border-accent hover:text-accent disabled:opacity-50"
+            >
+              + add documents
+            </button>
+            <button
+              onClick={reset}
+              disabled={busy}
+              className="font-mono text-[11.5px] text-faint hover:text-muted disabled:opacity-50"
+            >
+              reset
+            </button>
+            <input
+              ref={inputRef}
+              type="file"
+              multiple
+              accept=".pdf,.docx,.md,.txt"
+              className="hidden"
+              onChange={(e) => handleFiles(e.target.files)}
+            />
+          </>
+        ) : (
+          <span
+            className="font-mono text-[11px] text-faint"
+            title="Uploads are enabled in the local build. The hosted demo uses the sample corpus."
+          >
+            uploads: local build only
+          </span>
+        )}
       </div>
 
       {status && (
