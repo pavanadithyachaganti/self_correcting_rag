@@ -14,6 +14,10 @@ Most RAG demos stop at "retrieve, stuff into prompt, answer." This one adds the 
 - **Framework-free orchestration.** The agent loop, hybrid retrieval, RRF fusion, and evals are written from scratch in plain Python. No LangChain or LangGraph, which keeps the control flow explicit and easy to reason about.
 - **Hybrid retrieval.** Dense embeddings and BM25 are fused with reciprocal rank fusion, with optional cross-encoder reranking.
 - **Bring your own documents.** PDF, DOCX, Markdown, and text files can be dropped into the corpus folder or uploaded from the UI. They are extracted, chunked, and indexed on the fly.
+<img width="901" height="663" alt="Screenshot 2026-07-05 at 15 31 21" src="https://github.com/user-attachments/assets/accdad74-e29b-436f-a356-8642d5413358" />
+
+<img width="594" height="423" alt="Screenshot 2026-07-05 at 15 32 35" src="https://github.com/user-attachments/assets/f23fb425-98d5-4ec2-8e2e-f950d88e323e" />
+<img width="589" height="517" alt="Screenshot 2026-07-05 at 15 32 29" src="https://github.com/user-attachments/assets/41d978c0-e0c2-4fc3-823b-181587207770" />
 
 ## How the self-correction works
 
