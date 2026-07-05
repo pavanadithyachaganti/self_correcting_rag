@@ -33,8 +33,8 @@ class Settings:
     # Retrieval
     chunk_size = int(_get("CHUNK_SIZE", "700"))
     chunk_overlap = int(_get("CHUNK_OVERLAP", "120"))
-    top_k = int(_get("TOP_K", "8"))
-    rerank_top_n = int(_get("RERANK_TOP_N", "4"))
+    top_k = int(_get("TOP_K", "12"))
+    rerank_top_n = int(_get("RERANK_TOP_N", "6"))
     reranker = _get("RERANKER", "none")  # none | cross-encoder
     ce_model = _get("CE_MODEL", "cross-encoder/ms-marco-MiniLM-L-6-v2")
 
@@ -47,6 +47,9 @@ class Settings:
 
     # CORS: "*" or a comma-separated list of allowed origins
     allowed_origins = _get("ALLOWED_ORIGINS", "*")
+
+    # Uploads (disable on the hosted demo to avoid re-embedding bursts on free tiers)
+    enable_uploads = _get("ENABLE_UPLOADS", "true").lower() == "true"
 
     # Paths
     corpus_dir = _get("CORPUS_DIR", os.path.join(os.path.dirname(__file__), "..", "data", "corpus"))
