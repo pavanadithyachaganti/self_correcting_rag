@@ -1,0 +1,10 @@
+__pycache__/
+*.pyc
+.venv/
+venv/
+.env
+.data/
+*.pkl
+.pytest_cache/
+.DS_Store
+backend/data/uploads/

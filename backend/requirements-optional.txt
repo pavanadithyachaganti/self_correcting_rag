@@ -1,0 +1,4 @@
+# Optional extras. Install only what you need.
+chromadb>=0.5        # alternative vector backend: VECTOR_BACKEND=chroma
+ddgs>=6.0            # web-search fallback: ENABLE_WEB_FALLBACK=true
+pytest>=8.0          # run the test suite

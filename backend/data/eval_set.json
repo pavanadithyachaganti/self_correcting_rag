@@ -1,0 +1,8 @@
+[
+  {"question": "What is reciprocal rank fusion and why is it used in hybrid retrieval?"},
+  {"question": "How does corrective RAG handle low-quality retrieved documents?"},
+  {"question": "Why use a cross-encoder for reranking instead of the embedding model?"},
+  {"question": "What does the faithfulness metric measure and why does it matter?"},
+  {"question": "How does query rewriting help when retrieval returns weak context?"},
+  {"question": "Why are embeddings normalised before computing similarity?"}
+]

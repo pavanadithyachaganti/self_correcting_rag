@@ -1,0 +1,22 @@
+services:
+  - type: web
+    name: self-correcting-rag-api
+    runtime: python
+    plan: free
+    rootDir: backend
+    buildCommand: "pip install -r requirements-deploy.txt"
+    startCommand: "uvicorn app.main:app --host 0.0.0.0 --port $PORT"
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11.9"
+      - key: LLM_PROVIDER
+        value: gemini
+      - key: EMBEDDER
+        value: gemini
+      - key: VECTOR_BACKEND
+        value: numpy
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false

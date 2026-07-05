@@ -1,0 +1,29 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html, body {
+  background: #0d0e10;
+  color: #e7e8ea;
+}
+
+body {
+  font-feature-settings: "tnum" 1;
+}
+
+::selection {
+  background: rgba(61, 220, 151, 0.22);
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: none; }
+}
+.animate-rise { animation: rise 0.28s ease both; }
+
+@keyframes blink { 50% { opacity: 0; } }
+.caret { animation: blink 1.15s steps(1) infinite; }
+
+@media (prefers-reduced-motion: reduce) {
+  *, ::before, ::after { animation: none !important; transition: none !important; }
+}
